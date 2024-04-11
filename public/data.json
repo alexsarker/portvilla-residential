@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2DX2000",
+    "segment_name": "Residential",
+    "estate_title": "Cozy Retro Guest Apartment",
+    "image": "https://i.ibb.co/2t4c6gX/pexels-charlotte-may-5824530.jpg",
+    "description": "Welcome to your urban oasis! This modern apartment boasts floor-to-ceiling windows offering stunning city views. Perfect for professionals or couples seeking convenience and style.",
+    "price": "200,000",
+    "status": "sale",
+    "area": "1000",
+    "location": "Downtown, Nasal",
+    "facilities": ["living room", "swimming pool", "kitchen"]
+  },
+  {
+    "id": "5SY5000",
+    "segment_name": "Residential",
+    "estate_title": "Spacious Family Duplex Home",
+    "image": "https://i.ibb.co/BB2Wfzt/pexels-jonathan-borba-5570224.jpg",
+    "description": "Make memories in this spacious family home! With multiple bedrooms, a large backyard, and a welcoming atmosphere, this property is ideal for growing families.",
+    "price": "500,000",
+    "status": "sale",
+    "area": "2500",
+    "location": "Suburb, North London",
+    "facilities": ["living room", "backyard", "garage"]
+  },
+  {
+    "id": "8PK12000",
+    "segment_name": "Residential",
+    "estate_title": "Luxury Villa with Ocean View",
+    "image": "https://i.ibb.co/2hjWNwR/pexels-vlada-karpovich-7903136.jpg",
+    "description": "Indulge in luxury living with this stunning villa overlooking the sparkling ocean. From its grand architecture to its lavish amenities, this residence offers a lifestyle of opulence and relaxation.",
+    "price": "1,200,000",
+    "status": "sale",
+    "area": "4000",
+    "location": "Coastal Area, California",
+    "facilities": ["living room", "swimming pool", "terrace"]
+  },
+  {
+    "id": "4LT3500",
+    "segment_name": "Residential",
+    "estate_title": "Charming Townhouse",
+    "image": "https://i.ibb.co/gZFcfdZ/pexels-photo-19128683.jpg",
+    "description": "Step back in time with this charming townhouse nestled in the heart of a historic district. With its quaint facade and cozy interiors, this property offers a unique blend of character and comfort.",
+    "price": "350,000",
+    "status": "rent",
+    "area": "1800",
+    "location": "Historic District, Zagreb",
+    "facilities": ["living room", "backyard", "parking"]
+  }
+]
