@@ -1,5 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import Item from "./Item";
 
 const Home = () => {
@@ -98,6 +102,40 @@ const Home = () => {
               <Item key={item.id} item={item}></Item>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* section 3 */}
+      <div className="my-28">
+        <div className="mb-16 text-center">
+          <h2 className="text-5xl font-bold">Our Services</h2>
+          <p className="text-[#39393990] mx-auto mt-6">
+            Navigating the Pathways of Residential Real Estate with Expertise
+            and Dedication
+          </p>
+        </div>
+        <div>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={0}
+            slidesPerView={2}
+            pagination={{ clickable: true }}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            <SwiperSlide>
+              <img src="https://i.ibb.co/4W8BgvJ/4.png" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://i.ibb.co/W5j5MBW/5-1.png" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://i.ibb.co/Cv6r3TG/6.png" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://i.ibb.co/560Wd3Q/7.png" />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </div>
