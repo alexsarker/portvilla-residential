@@ -5,13 +5,36 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Item from "./Item";
+import { Helmet } from "react-helmet-async";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   const items = useLoaderData();
+  const { loading } = useContext(AuthContext);
+
+  useEffect(() => {
+    AOS.init({ duration: "1000" });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center my-24">
+        <span className="loading loading-infinity loading-lg"></span>
+      </div>
+    );
+  }
+
   return (
     <div>
+      <Helmet>
+        <title>PortVilla | Home</title>
+      </Helmet>
+
       {/* section 1 */}
-      <div className="relative">
+      <div className="relative" data-aos="fade-up">
         <div className="carousel w-full relative z-10">
           <div className="carousel w-full">
             <div id="slide1" className="carousel-item relative w-full">
@@ -88,7 +111,7 @@ const Home = () => {
       </div>
 
       {/* section 2 */}
-      <div>
+      <div data-aos="fade-up">
         <div className="flex justify-between items-center mt-16">
           <h2 className="text-5xl font-bold">Discover Houses</h2>
           <p className="max-w-96 text-[#39393990] text-right">
@@ -106,7 +129,7 @@ const Home = () => {
       </div>
 
       {/* section 3 */}
-      <div className="my-28">
+      <div className="my-28" data-aos="fade-down-right">
         <div className="mb-16 text-center">
           <h2 className="text-5xl font-bold">Our Services</h2>
           <p className="text-[#39393990] mx-auto mt-6">

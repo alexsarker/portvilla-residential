@@ -7,6 +7,7 @@ import Profile from "../Pages/Profile";
 import Root from "../Components/Root";
 import ErrorPage from "../Pages/ErrorPage";
 import ItemDetail from "../Pages/ItemDetail";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -29,17 +30,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/item/:id",
-        element: <ItemDetail></ItemDetail>,
+        element: (
+          <PrivateRoute>
+            <ItemDetail></ItemDetail>
+          </PrivateRoute>
+        ),
         loader: () => fetch("data.json"),
       },
       {
         path: "/blogs",
-        element: <Blogs></Blogs>,
+        element: (
+          <PrivateRoute>
+            <Blogs></Blogs>
+          </PrivateRoute>
+        ),
         loader: () => fetch("blogdata.json"),
       },
       {
         path: "/profile",
-        element: <Profile></Profile>,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
     ],
   },

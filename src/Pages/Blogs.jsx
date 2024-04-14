@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { FiArrowLeft } from "react-icons/fi";
 import { Link, useLoaderData } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Blogs = () => {
   const blogs = useLoaderData();
@@ -10,12 +13,26 @@ const Blogs = () => {
     setSelectedBlog(blog);
   };
 
+  useEffect(() => {
+    AOS.init({ duration: "1000" });
+  }, []);
+
   return (
     <div>
+      <Helmet>
+        <title>PortVilla | Blogs</title>
+      </Helmet>
+
       <h2 className="my-12 text-center text-3xl font-medium">Blogs</h2>
       <hr className="my-12" />
-      <div className="grid lg:grid-cols-2 gap-12 mb-48">
-        <span>
+      <div
+        className={
+          selectedBlog
+            ? "grid lg:grid-cols-2 gap-12 mb-48"
+            : "grid lg:grid-cols-1 gap-12 mb-48"
+        }
+      >
+        <span data-aos="fade-right">
           <div className="flex justify-center">
             <div className="grid lg:grid-cols-2 gap-6 p-8 bg-gray-100">
               {blogs.map((blog, idx) => (
@@ -37,10 +54,10 @@ const Blogs = () => {
             </div>
           </div>
         </span>
-        <span>
-          <div className="bg-gray-100 p-10">
-            {selectedBlog && (
-              <>
+        {selectedBlog && (
+          <>
+            <span data-aos="fade-left">
+              <div className="bg-gray-100 p-10">
                 <p className="pb-4  text-gray-400">
                   Published Date: {selectedBlog.date}
                 </p>
@@ -66,10 +83,10 @@ const Blogs = () => {
                     </button>
                   </Link>
                 </div>
-              </>
-            )}
-          </div>
-        </span>
+              </div>
+            </span>
+          </>
+        )}
       </div>
     </div>
   );
