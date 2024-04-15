@@ -143,8 +143,8 @@ const Home = () => {
             spaceBetween={0}
             slidesPerView={2}
             pagination={{ clickable: true }}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => "slide change"}
+            onSwiper={(swiper) => swiper}
           >
             <SwiperSlide>
               <img src="https://i.ibb.co/4W8BgvJ/4.png" />

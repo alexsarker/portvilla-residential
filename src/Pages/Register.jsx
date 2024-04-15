@@ -9,7 +9,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleLogin, updateUserProfile } =
+    useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,6 +43,18 @@ const Register = () => {
     }
 
     createUser(email, password)
+      .then(() => {
+        updateUserProfile(name, photo);
+        navigate(location?.state ? location.state : "/");
+        toast.success("Registered Successfully");
+      })
+      .catch(() => {
+        toast.error("Already Email Exist!");
+      });
+  };
+
+  const handleGoogle = () => {
+    googleLogin()
       .then(() => {
         navigate(location?.state ? location.state : "/");
         toast.success("Registered Successfully");
@@ -144,18 +157,18 @@ const Register = () => {
 
             {/* more button */}
             <div className="flex flex-col lg:flex-row items-center gap-6">
-              <Link>
-                <button className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white">
-                  <FaGoogle />
-                  Register with Google
-                </button>
-              </Link>
-              <Link>
-                <button className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white">
-                  <FaGithub />
-                  Register with Github
-                </button>
-              </Link>
+              <button
+                onClick={() => handleGoogle()}
+                className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white"
+              >
+                <FaGoogle />
+                Register with Google
+              </button>
+
+              <button className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white">
+                <FaGithub />
+                Register with Github
+              </button>
             </div>
 
             {/* sign up button */}
@@ -170,9 +183,9 @@ const Register = () => {
             <p className="text-red-700 pt-4 text-center">{regError}</p>
           )}
         </div>
-        <div>
-          <Toaster position="top-right" reverseOrder={false} />
-        </div>
+      </div>
+      <div>
+        <Toaster position="top-right" reverseOrder={false} />
       </div>
     </div>
   );

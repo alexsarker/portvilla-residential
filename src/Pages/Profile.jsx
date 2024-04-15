@@ -1,12 +1,26 @@
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Profile = () => {
+  const { user } = useContext(AuthContext);
+  const [newUser, setNewUser] = useState(user);
+  console.log(user);
+
   useEffect(() => {
     AOS.init({ duration: "1000" });
   }, []);
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const updatedName = form.get("name");
+    const email = form.get("email");
+    const updatedPhoto = form.get("photo");
+    console.log(updatedName, email, updatedPhoto);
+  };
 
   return (
     <div>
@@ -20,11 +34,11 @@ const Profile = () => {
           </div>
           <div className="avatar flex justify-center pb-6">
             <div className="w-24 rounded-full">
-              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              <img src={user.photoURL} alt="User avatar" />
             </div>
           </div>
           <div className="card w-96">
-            <form>
+            <form onSubmit={handleUpdate}>
               {/* Name */}
               <div className="form-control">
                 <label className="label">
@@ -33,8 +47,13 @@ const Profile = () => {
                 <label className="input input-bordered flex items-center gap-2 rounded-none">
                   <input
                     type="text"
+                    name="name"
                     className="grow text-sm"
                     placeholder="Name"
+                    value={newUser.displayName}
+                    onChange={(e) =>
+                      setNewUser({ ...newUser, displayName: e.target.value })
+                    }
                   />
                 </label>
               </div>
@@ -47,8 +66,13 @@ const Profile = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
                   className="input input-bordered rounded-none text-sm"
+                  value={newUser.email}
+                  onChange={(e) =>
+                    setNewUser({ ...newUser, email: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -62,8 +86,13 @@ const Profile = () => {
                 <label className="input input-bordered flex items-center gap-2 rounded-none">
                   <input
                     type="url"
+                    name="photo"
                     className="grow text-sm"
                     placeholder="https:/"
+                    value={newUser.photoURL}
+                    onChange={(e) =>
+                      setNewUser({ ...newUser, photoURL: e.target.value })
+                    }
                   />
                 </label>
               </div>

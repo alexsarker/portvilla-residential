@@ -9,7 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Login = () => {
-  const { signUser } = useContext(AuthContext);
+  const { signUser, googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [regError, setRegError] = useState("");
   const location = useLocation();
@@ -48,6 +48,18 @@ const Login = () => {
         toast.error("Not Login!");
       });
   };
+
+  const handleGoogle = () => {
+    googleLogin()
+      .then(() => {
+        navigate(location?.state ? location.state : "/");
+        toast.success("Registered Successfully");
+      })
+      .catch(() => {
+        toast.error("Already Email Exist!");
+      });
+  };
+
   return (
     <div>
       <Helmet>
@@ -122,18 +134,18 @@ const Login = () => {
 
             {/* more button */}
             <div className="flex flex-col lg:flex-row items-center gap-6">
-              <Link>
-                <button className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white">
-                  <FaGoogle />
-                  Sign in with Google
-                </button>
-              </Link>
-              <Link>
-                <button className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white">
-                  <FaGithub />
-                  Sign in with Github
-                </button>
-              </Link>
+              <button
+                onClick={() => handleGoogle()}
+                className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white"
+              >
+                <FaGoogle />
+                Sign in with Google
+              </button>
+
+              <button className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white">
+                <FaGithub />
+                Sign in with Github
+              </button>
             </div>
 
             {/* sign up button */}
@@ -148,9 +160,9 @@ const Login = () => {
             <p className="text-red-700 pt-4 text-center">{regError}</p>
           )}
         </div>
-        <div>
-          <Toaster position="top-right" reverseOrder={false} />
-        </div>
+      </div>
+      <div>
+        <Toaster position="top-right" reverseOrder={false} />
       </div>
     </div>
   );
