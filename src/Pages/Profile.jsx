@@ -5,9 +5,8 @@ import "aos/dist/aos.css";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [newUser, setNewUser] = useState(user);
-  console.log(user);
 
   useEffect(() => {
     AOS.init({ duration: "1000" });
@@ -17,9 +16,18 @@ const Profile = () => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const updatedName = form.get("name");
-    const email = form.get("email");
+    const updatedEmail = form.get("email");
     const updatedPhoto = form.get("photo");
-    console.log(updatedName, email, updatedPhoto);
+    console.log(updatedName, updatedEmail, updatedPhoto);
+
+    const updatedUser = {
+      ...user,
+      displayName: updatedName,
+      email: updatedEmail,
+      photoURL: updatedPhoto,
+    };
+    setUser(updatedUser);
+    console.log(updatedUser);
   };
 
   return (

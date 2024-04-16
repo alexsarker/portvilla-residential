@@ -9,7 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Login = () => {
-  const { signUser, googleLogin } = useContext(AuthContext);
+  const { signUser, googleLogin, githubLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [regError, setRegError] = useState("");
   const location = useLocation();
@@ -51,6 +51,17 @@ const Login = () => {
 
   const handleGoogle = () => {
     googleLogin()
+      .then(() => {
+        navigate(location?.state ? location.state : "/");
+        toast.success("Registered Successfully");
+      })
+      .catch(() => {
+        toast.error("Already Email Exist!");
+      });
+  };
+
+  const handleGithub = () => {
+    githubLogin()
       .then(() => {
         navigate(location?.state ? location.state : "/");
         toast.success("Registered Successfully");
@@ -142,7 +153,10 @@ const Login = () => {
                 Sign in with Google
               </button>
 
-              <button className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white">
+              <button
+                onClick={() => handleGithub()}
+                className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white"
+              >
                 <FaGithub />
                 Sign in with Github
               </button>

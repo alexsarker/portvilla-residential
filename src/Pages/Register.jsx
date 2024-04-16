@@ -9,7 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Register = () => {
-  const { createUser, googleLogin, updateUserProfile } =
+  const { createUser, googleLogin, githubLogin, updateUserProfile } =
     useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
@@ -55,6 +55,16 @@ const Register = () => {
 
   const handleGoogle = () => {
     googleLogin()
+      .then(() => {
+        navigate(location?.state ? location.state : "/");
+        toast.success("Registered Successfully");
+      })
+      .catch(() => {
+        toast.error("Already Email Exist!");
+      });
+  };
+  const handleGithub = () => {
+    githubLogin()
       .then(() => {
         navigate(location?.state ? location.state : "/");
         toast.success("Registered Successfully");
@@ -165,7 +175,10 @@ const Register = () => {
                 Register with Google
               </button>
 
-              <button className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white">
+              <button
+                onClick={() => handleGithub()}
+                className="py-2 px-6 border flex items-center gap-2 hover:bg-blue-500 hover:text-white"
+              >
                 <FaGithub />
                 Register with Github
               </button>
