@@ -34,12 +34,12 @@ const Navbar = () => {
           PortVilla
         </Link>
       </div>
-      <div className="flex-none gap-8">
+      <div className="flex-none md:gap-6 lg:gap-8">
         {navLinks}
         {/* Main Work */}
         {user ? (
           <div className="dropdown dropdown-end">
-            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            <div className="tooltip tooltip-left lg:tooltip-bottom" data-tip={user.displayName}>
               <div
                 tabIndex={0}
                 role="button"

@@ -79,7 +79,7 @@ const Register = () => {
       <Helmet>
         <title>PortVilla | Register</title>
       </Helmet>
-      <div className="hero pt-4 pb-56" data-aos="zoom-in">
+      <div className="hero pt-4 pb-24 lg:pb-56" data-aos="zoom-in">
         <div className="py-12 px-16 border text-black">
           <div className="text-left pb-4">
             <h1 className="text-4xl font-medium pb-4">Get Started Now</h1>

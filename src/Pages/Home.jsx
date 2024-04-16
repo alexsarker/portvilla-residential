@@ -35,7 +35,7 @@ const Home = () => {
 
       {/* section 1 */}
       <div className="relative" data-aos="fade-up">
-        <div className="carousel w-full relative z-10">
+        <div className="carousel w-full h-96 lg:h-full relative z-10">
           <div className="carousel w-full">
             <div id="slide1" className="carousel-item relative w-full">
               <img src="https://i.ibb.co/S7Gg7Q5/1.png" className="w-full" />
@@ -90,19 +90,19 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center ml-56 z-20 pointer-events-none gap-10">
-          <h1 className="max-w-lg text-6xl text-[#333333] font-bold">
+        <div className="px-20 lg:px-0 lg:w-full absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center text-center lg:text-left items-center lg:items-start lg:ml-56 z-20 pointer-events-none gap-4 sm:gap-6 lg:gap-10">
+          <h1 className="max-w-lg text-3xl md:text-5xl lg:text-6xl text-[#333333] font-bold">
             Discover the best Residents
           </h1>
-          <p className="max-w-xl text-[#393939]">
+          <p className="max-w-lg sm:max-w-xl text-base sm:text-lg text-[#393939]">
             Find your dream home among our diverse range of residential
             properties, from cozy apartments to spacious single-family homes,
             tailored to suit your lifestyle.
           </p>
           <span>
-            <button className="flex gap-2 px-5 py-4 items-center bg-[#393939] text-white">
+            <button className="flex gap-2 px-4 sm:px-5 py-3 sm:py-4 items-center bg-[#393939] text-white text-base sm:text-lg">
               Contact us{" "}
-              <span className="text-2xl">
+              <span className="text-xl sm:text-2xl">
                 <FiArrowUpRight />
               </span>
             </button>
@@ -112,15 +112,15 @@ const Home = () => {
 
       {/* section 2 */}
       <div data-aos="fade-up">
-        <div className="flex justify-between items-center mt-16">
-          <h2 className="text-5xl font-bold">Discover Houses</h2>
-          <p className="max-w-96 text-[#39393990] text-right">
+        <div className="flex flex-col lg:flex-row lg:justify-between items-center mt-16">
+          <h2 className="text-4xl lg:text-5xl font-bold">Discover Houses</h2>
+          <p className="max-w-96 text-[#39393990] text-center pt-4 lg:pt-0 lg:text-right">
             As it involves exploring and learning about various options
             available in the market
           </p>
         </div>
         <div className="flex justify-center">
-          <div className="grid grid-cols-4 mt-24 mb-20 gap-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 mt-10 lg:mt-24 mb-20 gap-20">
             {items.map((item) => (
               <Item key={item.id} item={item}></Item>
             ))}
@@ -129,10 +129,10 @@ const Home = () => {
       </div>
 
       {/* section 3 */}
-      <div className="my-28" data-aos="fade-down-right">
-        <div className="mb-16 text-center">
+      <div className="my-4 lg:my-24" data-aos="fade-down-right">
+        <div className="mb-8 lg:mb-16 text-center">
           <h2 className="text-5xl font-bold">Our Services</h2>
-          <p className="text-[#39393990] mx-auto mt-6">
+          <p className="text-[#39393990] mx-auto mt-6 px-6 lg:px-0">
             Navigating the Pathways of Residential Real Estate with Expertise
             and Dedication
           </p>

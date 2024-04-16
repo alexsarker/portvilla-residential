@@ -35,7 +35,7 @@ const Profile = () => {
       <Helmet>
         <title>PortVilla | Profile</title>
       </Helmet>
-      <div className="hero pt-10 pb-56" data-aos="zoom-out-down">
+      <div className="hero pt-10 pb-24 lg:pb-56" data-aos="zoom-out-down">
         <div className="py-12 px-16 border text-black">
           <div className="text-center pb-4">
             <h1 className="text-4xl font-medium pb-4">Profile</h1>
@@ -45,7 +45,7 @@ const Profile = () => {
               <img src={user.photoURL} alt="User avatar" />
             </div>
           </div>
-          <div className="card w-96">
+          <div className="card md:w-96 lg:w-96">
             <form onSubmit={handleUpdate}>
               {/* Name */}
               <div className="form-control">

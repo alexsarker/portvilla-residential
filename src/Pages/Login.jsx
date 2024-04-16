@@ -76,7 +76,7 @@ const Login = () => {
       <Helmet>
         <title>PortVilla | Login</title>
       </Helmet>
-      <div className="hero pt-10 pb-56" data-aos="zoom-in">
+      <div className="hero pt-10 pb-24 lg:pb-56" data-aos="zoom-in">
         <div className="py-12 px-16 border text-black">
           <div className="text-left pb-8">
             <h1 className="text-4xl font-medium pb-4">Welcome back!</h1>

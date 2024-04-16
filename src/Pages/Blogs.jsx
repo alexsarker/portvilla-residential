@@ -28,8 +28,8 @@ const Blogs = () => {
       <div
         className={
           selectedBlog
-            ? "grid lg:grid-cols-2 gap-12 mb-48"
-            : "grid lg:grid-cols-1 gap-12 mb-48"
+            ? "grid lg:grid-cols-2 w-96 md:w-[600px] lg:w-full mx-auto lg:mx-0 items-center lg:items-start gap-4 lg:gap-12 mb-24 lg:mb-48"
+            : "grid lg:grid-cols-1 w-96 md:w-[600px] lg:w-full mx-auto lg:mx-0 items-center lg:items-start gap-4 lg:gap-12 mb-24 lg:mb-48"
         }
       >
         <span data-aos="fade-right">
@@ -58,7 +58,7 @@ const Blogs = () => {
           <>
             <span data-aos="fade-left">
               <div className="bg-gray-100 p-10">
-                <p className="pb-4  text-gray-400">
+                <p className="pb-4 text-gray-400">
                   Published Date: {selectedBlog.date}
                 </p>
                 <img

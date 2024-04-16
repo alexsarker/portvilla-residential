@@ -29,14 +29,17 @@ const ItemDetail = () => {
       <Helmet>
         <title>PortVilla | Item Detail</title>
       </Helmet>
-      <div className="flex justify-center mb-24" data-aos="flip-right">
-        <div className="grid lg:grid-flow-col gap-16 mt-12 p-10 lg:p-0">
+      <div
+        className="flex flex-col lg:flex-row justify-center mb-24"
+        data-aos="flip-right"
+      >
+        <div className="grid lg:grid-flow-col gap-16 mt-12 p-6 lg:p-0">
           <div>
-            <img className="max-h-[600px]" src={itemImage} alt="item Cover" />
+            <img className="max-h-[600px] md:mx-auto" src={itemImage} alt="item Cover" />
           </div>
           <div className="flex flex-col justify-between">
             <div className="grid gap-6">
-              <div className="flex  justify-between items-center">
+              <div className="flex justify-between items-center">
                 <span className="text-white bg-red-600 px-4 py-1">
                   {itemStatus}
                 </span>
@@ -69,7 +72,7 @@ const ItemDetail = () => {
                 <p className="text-[#131313B2]">Location :</p>
                 <p className="font-bold">{itemLocation}</p>
               </div>
-              <div className="flex justify-between items-center pt-10">
+              <div className="flex flex-col gap-8 md:gap-0 lg:gap-0 md:flex-row lg:flex-row justify-between items-center pt-10">
                 <h1 className="text-red-400 text-4xl font-bold">
                   <span className="text-black text-4xl font-bold">Price :</span>{" "}
                   ${itemPrice}
